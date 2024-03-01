@@ -90,21 +90,26 @@ function drawCard() {
 
 }
 
+let userCardCount = 0;
+let userSum = 0;
+let dealerSum = 0;
 //separate draw functions for user and dealer
 function drawUser() {
-    const card = drawCard(); // select random card
-    
-    const suitU = document.querySelector("#suitU");
-    const typeU = document.querySelector("#typeU");
-    const valueU = document.querySelector("#valueU");
-    
-    // Display user card info
-    suitU.innerText = card.suit;
-    typeU.innerText = card.type;
-    valueU.innerText = card.value;
+        const card = drawCard(); // select a random card
+        
+        const suitU = document.querySelector("#suitU");
+        const typeU = document.querySelector("#typeU");
+        const valueU = document.querySelector("#valueU");
+		
+		userCardCount++; // Increment the user card count
+        drawDealer();
 
-	drawDealer();
-}
+        suitU.innerText = card.suit;
+    typeU.innerText = card.type;
+
+    userSum += card.value; // Adding this line to increase userSum with each draw
+    valueU.innerText = userSum; // Displaying the sum instead of the last drawn card value 
+    }
 
 function drawDealer() {
     const card = drawCard(); // select random card
@@ -116,7 +121,9 @@ function drawDealer() {
     // Display dealer card info
     suitD.innerText = card.suit;
     typeD.innerText = card.type;
-    valueD.innerText = card.value;
+
+    dealerSum += card.value; // Adding this line to increase dealerSum with each draw
+    valueD.innerText = dealerSum; // Displaying the sum instead of the last drawn card value
 }
 
 // Bet amounts functions
@@ -165,10 +172,43 @@ function bet1000() {
     }
 }
 
+// Function to check the winner
+function checkWinnerAndFinishGame() {
+    gameLive = false;
+    const userScore = Number(valueU.innerText);
+    const dealerScore = Number(valueD.innerText);
+    let winner;
+
+	// Check if either player or dealer has busted
+	if (userScore > 21) {
+		winner = 'Dealer';
+	}else if (dealerScore > 21) {
+		winner = 'Player';
+	}
+	else {
+		// Determine who is closest to 21 and assign the winner
+		winner = Math.abs(21 - userScore) < Math.abs(21 - dealerScore) ? 'Player' : 'Dealer';
+	}
+
+	// Updating balance and logs according to the winner
+	if (winner === 'Player') {
+		money += 2 * (balance.innerText - money);
+		textright.innerText = 'Player wins';
+	}else {
+		textright.innerText = 'Dealer wins';
+	}
+
+	balance.innerText = money;
+}
+
 // Player action functions
 function hold() {
-    // tbd
-    alert("Held cards");
+    if (gameLive && userCardCount >= 2) { // User can hold after 2 card draws
+        drawDealer();
+        checkWinnerAndFinishGame();
+    } else {
+        alert('You must draw at least two cards before holding.');
+    }
 }
 
 function double() {
