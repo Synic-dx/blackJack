@@ -26,6 +26,8 @@ header {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 20px 21px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  position: fixed;
+  height: 14vh;
 }
 
 #rules,
@@ -87,7 +89,7 @@ footer {
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   font-family: Kanit, Verdana, Geneva, Tahoma, sans-serif;
-  position: absolute;
+  position: fixed;
   bottom: 0;
 }
 
@@ -98,6 +100,8 @@ main {
   justify-content: space-around;
   font-family: Anta, Verdana, Geneva, Tahoma, sans-serif;
   letter-spacing: 2px;
+  position: absolute;
+  top: 20%;
 }
 
 #left {
@@ -152,11 +156,6 @@ button:hover {
 button:active {
   background-color: yellowgreen;
   color: aliceblue;
-}
-
-button:focus {
-  background-color: yellowgreen;
-  color: black;
 }
 
 a:link {
@@ -232,4 +231,8 @@ a:visited:hover {
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
+}
+
+#valueU, #valueD {
+  font-size: 30px;
 }
