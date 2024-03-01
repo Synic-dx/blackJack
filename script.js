@@ -11,7 +11,7 @@ const yourcard = document.querySelector("#yourcard");
 let money = balance.innerText;
 let gameLive = false;
 
-//Card deck- 8 decks in total (4 for user 4 for dealer) as per rules (pls make this so, when im copy pasting the objects ofc it aint working)
+
 const deck = [
         { suit: 'Hearts', type: '2', value: 2 },
         { suit: 'Hearts', type: '3', value: 3 },
@@ -71,7 +71,6 @@ let aceDrawn = false;
 
 function drawCard() {
 
-	//AI generated lol removes the previous the card from the deck
 	const index = Math.floor(Math.random() * deck.length);
     const card = deck[index];
 
@@ -226,5 +225,3 @@ function update(location) {
 // initial settings
 update(locations[0]); // initial loc at bet menu
 showDealerCard(); // initial hide game (since gamelive is set to false)
-
-//idk how to do so u make sure that the typing animation gets restarted each time u draw cards
