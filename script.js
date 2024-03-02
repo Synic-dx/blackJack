@@ -263,7 +263,7 @@ function double() {
     money -= bet;
     balance.innerText = money;
     textright.innerText = "Doubled Bet";
-    drawCard ();
+    drawUser ();
 }
 
 // unhiding cards (actually its usercard i made a mistake then didnt risk changing much again)
