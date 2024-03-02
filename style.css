@@ -101,7 +101,7 @@ main {
   font-family: Anta, Verdana, Geneva, Tahoma, sans-serif;
   letter-spacing: 2px;
   position: absolute;
-  top: 20%;
+  top: 15%;
 }
 
 #left {
@@ -127,7 +127,7 @@ main {
 
 #dealercard, #yourcard {
     display: none;
-  }
+}
 
 button {
   width: 200px;
@@ -178,15 +178,14 @@ a:visited:hover {
 @keyframes typing {
     from { width: 0 }
     to { width: 100% }
-  }
+}
   
-  @keyframes blink-cursor {
+@keyframes blink-cursor {
     from, to { border-color: transparent }
     50% { border-color: orange; }
-  }
+}
   
-  
-  #textleft {
+#textleft {
     border-right: .15em solid orange;
     white-space: nowrap;
     overflow: hidden;
@@ -194,45 +193,130 @@ a:visited:hover {
     padding: 0;
     animation: typing 1s steps(40, end),
     blink-cursor .75s step-end infinite;
-  }
+}
   
-  #dealercard {
+#dealercard {
     white-space: nowrap;
     overflow: hidden;
     box-sizing: border-box;
     padding: 0 .5em;
     animation: typing 1s steps(40, end);
-  }
+}
   
-  #yourcard {
+#yourcard {
     white-space: nowrap;
     overflow: hidden;
     box-sizing: border-box;
     padding: 0 .5em;
     animation: typing 1s steps(40, end);
-  }
+}
 
 @-webkit-keyframes slide-left {
-  0% {
-    -webkit-transform: translateX(60px);
-            transform: translateX(60px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
+    0% {
+        -webkit-transform: translateX(60px);
+                transform: translateX(60px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
 }
+
 @keyframes slide-left {
-  0% {
-    -webkit-transform: translateX(60px);
-            transform: translateX(60px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
+    0% {
+        -webkit-transform: translateX(60px);
+                transform: translateX(60px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
 }
 
 #valueU, #valueD {
   font-size: 30px;
+}
+
+/* Responsive designs using media queries, modify to your preference*/
+
+@media only screen and (min-width: 1200px) {
+  /* Large Devices, Wide Screens */
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  svg {
+    width: 5rem;
+  }
+  
+  button {
+    width: 250px;
+    height: 60px;
+  }
+
+}
+
+@media only screen and (max-width: 1200px) {
+  /* Medium Devices, Desktops */
+  h1 {
+    font-size: 2rem;
+  }
+
+  svg {
+    width: 4rem;
+  }
+
+  button {
+    width: 200px;
+    height: 50px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  /* Small Devices, Tablets */
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  svg {
+    width: 3rem;
+  }
+
+  button {
+    width: 150px;
+    height: 40px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  /* Extra Small Devices, Phones */
+  h1 {
+    font-size: 1rem;
+  }
+
+  svg {
+    width: 2rem;
+  }
+  
+  button {
+    width: 100px;
+    height: 30px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  /* Extra Extra Small Devices, Phones */
+  h1 {
+    font-size: 0.8rem;
+  }
+
+  svg {
+    width: 1.5rem;
+  }
+  
+  button {
+    width: 80px;
+    height: 25px;
+  }
 }
