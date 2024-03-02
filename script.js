@@ -111,6 +111,9 @@ function drawUser() {
     if (userSum < 21 && dealerSum <= 18) {
         drawDealer();
         }
+    else if (dealerSum < userSum) {
+        drawDealer();
+    }
     else if (userSum === 21) {
         checkWinnerAndFinishGame();
     }
@@ -228,7 +231,7 @@ function checkWinnerAndFinishGame() {
 
 	// Updating balance and logs according to the winner
 	if (winner === 'Player') {
-		money += bet;
+		money += 2 * bet;
         textleft.innerText = 'Player Wins';
 	}
     else if (winner === 'Dealer') {
@@ -247,17 +250,18 @@ function checkWinnerAndFinishGame() {
 }
 
 // Player action functions
-function hold() {
-    if (gameLive && userCardCount >= 2) { // User can hold after 2 card draws
-        drawDealer();
-        checkWinnerAndFinishGame();
-    } else {
+function hold() {if (gameLive && userCardCount >= 2) { // User can hold after 2 card draws
+        if (dealerScore < 18 && dealerScore < userScore) {drawDealer();}
+        else {checkWinnerAndFinishGame();}}
+    
+    else {
         alert('You must draw at least two cards before holding.');
-    }
-}
+    }}
 
 function double() {
     bet = 2 * bet;
+    money -= bet;
+    balance.innerText = money;
     textright.innerText = "Doubled Bet";
     drawCard ();
 }
