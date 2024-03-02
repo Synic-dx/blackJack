@@ -5,3 +5,4 @@ Game has some errors to be fixed:
 
 The hold function and Double functions.
 Updating balance after each game.
+Game Drawn when dealer busts.
