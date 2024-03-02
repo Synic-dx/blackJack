@@ -4,5 +4,5 @@ A card game made with Javascript. Users have an initial balance and can choose b
 Game has some errors to be fixed:
 
 The hold function and Double functions.
-Updating balance after each game.
-Game Drawn when dealer busts.
+Updating balance correctly after each game.
+Game Drawn when its not drawn.
