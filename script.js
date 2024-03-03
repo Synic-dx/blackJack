@@ -9,6 +9,7 @@ const yourcard = document.querySelector("#yourcard");
 let drawCardSound = new Audio('drawcard.mp3');
 let dealerWinSound = new Audio('dealerwin.wav');
 let playerWinSound = new Audio('playerwin.mp3');
+let gameDrawnSound = new Audio('gamedrawsound.wav')
 
 // Current game money and the live state
 let money = balance.innerText;
@@ -136,14 +137,12 @@ function drawDealer() {if (dealerSum < 17 || dealerSum < userSum) {
     dealerSum += card.value; // Adding this line to increase dealerSum with each draw
     valueD.innerText = dealerSum; // Displaying the sum instead of the last drawn card value
 
-    if (dealerSum === 21) {
+    {if (dealerSum === 21) {
         checkWinnerAndFinishGame();
-        winner = "Dealer";
     }
     else if (dealerSum > 21) {
         checkWinnerAndFinishGame();
-        winner = "Player";
-    }
+    }}
 }
 else {
     checkWinnerAndFinishGame();
@@ -209,17 +208,17 @@ function checkWinnerAndFinishGame() {
     {if (dealerSum > 21) {
 		winner = 'Player';
     }
-    else if (userSum > 21) {
+     else if (userSum > 21) {
 		winner = 'Dealer';
 	}
-    else if (userSum == 21) {
+    else if (userSum === 21) {
         winner = 'Player';
     }
-    else if (dealerSum == 21) {
+    else if (dealerSum === 21) {
         winner = 'Dealer';
     }
-    else if (userSum == dealerSum) {
-        winner = 'None';
+    else if (userSum === dealerSum) {
+        winner = 'Drawn';
     }
 	else {
 		// Determine who is closest to 21 and assign the winner
@@ -237,9 +236,10 @@ function checkWinnerAndFinishGame() {
         textleft.innerText = "Dealer Wins";
         dealerWinSound.play();
 	}
-    else if (winner === 'None') {
+    else if (winner === 'Drawn') {
         money += bet;
         textleft.innerText = 'Game drawn';
+        gameDrawnSound.play();
     }}
 
 	balance.innerText = money;
@@ -255,16 +255,18 @@ function hold() {if (gameLive && userCardCount >= 2) {
             checkWinnerAndFinishGame();
         }
         else {
-        checkWinnerAndFinishGame();
-    }}
+            checkWinnerAndFinishGame();
+        }
+        }
     
     else {
         alert('You must draw at least two cards before holding.');
-    }}
+    }
+}
 
 function double() {
-    bet = 2 * bet;
     money -= bet;
+    bet = 2 * bet;
     balance.innerText = money;
     textright.innerText = "Doubled Bet";
     drawUser ();
