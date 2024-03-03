@@ -6,6 +6,9 @@ const textleft = document.querySelector("#textleft");
 const balance = document.querySelector("#balance");
 const dealercard = document.querySelector("#dealercard");
 const yourcard = document.querySelector("#yourcard");
+let drawCardSound = new Audio('drawcard.mp3');
+let dealerWinSound = new Audio('dealerwin.wav');
+let playerWinSound = new Audio('playerwin.mp3');
 
 // Current game money and the live state
 let money = balance.innerText;
@@ -72,6 +75,8 @@ let userSum = 0;
 let dealerSum = 0;
 
 function drawCard() { 
+
+    drawCardSound.play();
     
     const index = Math.floor(Math.random() * deck.length);
     const card = deck[index];
@@ -133,9 +138,11 @@ function drawDealer() {if (dealerSum < 17 || dealerSum < userSum) {
 
     if (dealerSum === 21) {
         checkWinnerAndFinishGame();
+        winner = "Dealer";
     }
     else if (dealerSum > 21) {
         checkWinnerAndFinishGame();
+        winner = "Player";
     }
 }
 else {
@@ -198,39 +205,42 @@ function checkWinnerAndFinishGame() {
     update(locations[0]);
     let winner;
 	// Check if either player or dealer has busted or has reached blackjack
-	if (userSum > 21) {
+	
+    {if (dealerSum > 21) {
+		winner = 'Player';
+    }
+    else if (userSum > 21) {
 		winner = 'Dealer';
 	}
-    else if (dealerSum > 21) {
-		winner = 'Player';
-	}
-    else if (userSum === 21) {
+    else if (userSum == 21) {
         winner = 'Player';
     }
-    else if (dealerSum === 21) {
+    else if (dealerSum == 21) {
         winner = 'Dealer';
     }
-    else if (Math.abs(21 - userSum) === Math.abs(21 - dealerSum)) {
+    else if (userSum == dealerSum) {
         winner = 'None';
     }
 	else {
 		// Determine who is closest to 21 and assign the winner
 		winner = userSum > dealerSum ? 'Player' : 'Dealer';
-	}
+	}}
 
 	// Updating balance and logs according to the winner
-	if (winner === 'Player') {
+	{if (winner === 'Player') {
 		money += 2 * bet;
         textleft.innerText = 'Player Wins';
+        playerWinSound.play();
 	}
     else if (winner === 'Dealer') {
 		money = money;
         textleft.innerText = "Dealer Wins";
+        dealerWinSound.play();
 	}
     else if (winner === 'None') {
         money += bet;
         textleft.innerText = 'Game drawn';
-    }
+    }}
 
 	balance.innerText = money;
     userCardCount = 0; // Resetting the user card count
@@ -240,14 +250,13 @@ function checkWinnerAndFinishGame() {
 
 // Player action functions
 function hold() {if (gameLive && userCardCount >= 2) {
-        if (dealerSum > userSum) {
-            checkWinnerAndFinishGame();
-        }
-        else if (dealerSum < userSum) {
+        if (dealerSum < userSum) {
             drawDealer();
             checkWinnerAndFinishGame();
         }
-    }
+        else {
+        checkWinnerAndFinishGame();
+    }}
     
     else {
         alert('You must draw at least two cards before holding.');

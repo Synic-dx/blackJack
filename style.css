@@ -44,12 +44,8 @@ header {
   color: aliceblue;
 }
 
-#stats {
-  color: aliceblue;
-}
-
 #bank {
-  margin-right: 75px;
+  margin-right: 160px;
   color: rgb(3, 255, 3);
   font-family: Roboto Mono, monospace;
 }
