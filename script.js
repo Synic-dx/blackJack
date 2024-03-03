@@ -73,6 +73,9 @@ let dealerSum = 0;
 
 function drawCard() { 
     
+    const index = Math.floor(Math.random() * deck.length);
+    const card = deck[index];
+
     // If the card drawn is an Ace and it's the first Ace
     if (card.type === 'A' && userCardCount <= 1) {
         return {...card, value: 11};
@@ -114,7 +117,7 @@ function drawUser() {
     }
     }
 
-function drawDealer() {if (dealerSum < 17) {
+function drawDealer() {if (dealerSum < 17 || dealerSum < userSum) {
     const card = drawCard(); // select random card
     
     const suitD = document.querySelector("#suitD");
