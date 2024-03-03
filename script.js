@@ -71,13 +71,8 @@ let userCardCount = 0;
 let userSum = 0;
 let dealerSum = 0;
 
-function drawCard() {
-
-	const index = Math.floor(Math.random() * deck.length);
-    const card = deck[index];
-
-    deck.splice(index, 1); 
-
+function drawCard() { 
+    
     // If the card drawn is an Ace and it's the first Ace
     if (card.type === 'A' && userCardCount <= 1) {
         return {...card, value: 11};
@@ -202,27 +197,22 @@ function checkWinnerAndFinishGame() {
 	// Check if either player or dealer has busted or has reached blackjack
 	if (userSum > 21) {
 		winner = 'Dealer';
-        textleft.innerText = 'Player Bust: Dealer wins';
 	}
     else if (dealerSum > 21) {
 		winner = 'Player';
-        textleft.innerText = 'Dealer Bust: Player wins';
 	}
     else if (userSum === 21) {
         winner = 'Player';
-        textleft.innerText = 'Blackjack: Player wins';
     }
     else if (dealerSum === 21) {
         winner = 'Dealer';
-        textleft.innerText = 'Blackjack: Dealer wins';
     }
     else if (Math.abs(21 - userSum) === Math.abs(21 - dealerSum)) {
         winner = 'None';
-        textleft.innerText = 'Game drawn';
     }
 	else {
 		// Determine who is closest to 21 and assign the winner
-		winner = Math.abs(21 - userSum) < Math.abs(21 - dealerSum) ? 'Player' : 'Dealer';
+		winner = userSum > dealerSum ? 'Player' : 'Dealer';
 	}
 
 	// Updating balance and logs according to the winner
@@ -234,8 +224,9 @@ function checkWinnerAndFinishGame() {
 		money = money;
         textleft.innerText = "Dealer Wins";
 	}
-    else {
+    else if (winner === 'None') {
         money += bet;
+        textleft.innerText = 'Game drawn';
     }
 
 	balance.innerText = money;
