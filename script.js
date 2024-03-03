@@ -9,7 +9,11 @@ const yourcard = document.querySelector("#yourcard");
 let drawCardSound = new Audio('drawcard.mp3');
 let dealerWinSound = new Audio('dealerwin.wav');
 let playerWinSound = new Audio('playerwin.mp3');
-let gameDrawnSound = new Audio('gamedrawsound.wav')
+let gameDrawnSound = new Audio('gamedrawsound.wav');
+drawCardSound.volume = 0.1;
+dealerWinSound.volume = 0.1;
+playerWinSound.volume = 0.1;
+gameDrawnSound.volume = 0.1;
 
 // Current game money and the live state
 let money = balance.innerText;
