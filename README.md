@@ -1,6 +1,6 @@
 # <img src="logo.svg" width= "150px"> 
 
-**blackJack**
+# **blackJack**
 
 ## About
 
