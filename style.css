@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anta&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -17,6 +18,7 @@ body {
 
 header {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   background-color: rgba(0, 0, 0, 0.781);
   margin: 0px;
@@ -28,12 +30,17 @@ header {
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   position: fixed;
   height: 14vh;
+  padding: 0 0 0 1%;
+}
+
+h1 {
+  font-family: Poppins, Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #rules,
 #stats,
 #bank {
-  margin: auto auto;
+  margin: auto;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.1rem;
   text-transform: uppercase;
@@ -51,8 +58,9 @@ header {
 }
 
 svg {
-  margin: 5px 2px auto 15px;
+  margin: 0px 0px 2px 7px;
   width: 5vw;
+  enable-background:new 0 0 24 30;
 }
 
 h1 {
@@ -70,14 +78,19 @@ h1 {
   color: #ffbd08;
 }
 
-#plate {
+#you {
+  color: rgb(3, 255, 3);
+}
+
+#plate, #dealer {
   color: #ff1100;
 }
 
 footer {
   width: 100vw;
   text-align: center;
-  height: 50px;
+  height: 45px;
+  padding: auto;
   background-color: rgba(0, 0, 0, 0.918);
   padding: 0;
   border-top: black 3px solid;
@@ -87,6 +100,7 @@ footer {
   font-family: Kanit, Verdana, Geneva, Tahoma, sans-serif;
   position: fixed;
   bottom: 0;
+  font-size: medium;
 }
 
 .st0{fill:#FFFFFF;}
@@ -104,7 +118,7 @@ main {
 
 #left {
   float: left;
-  margin: 30px auto auto auto;
+  margin: 20px auto auto auto;
 }
 
 #right {
@@ -119,12 +133,16 @@ main {
   flex-direction: column;
 }
 
-#textleft, #dealercard, #yourcard {
-    margin: 7% 0;
+#textleft {
+    margin: 15% 0;
 }
 
 #dealercard, #yourcard {
-    display: none;
+  margin: 10% 0;
+}
+
+#dealercard, #yourcard {
+    display: 15% 0;
 }
 
 button {
@@ -231,11 +249,7 @@ a:visited:hover {
     }
 }
 
-#valueU, #valueD {
-  font-size: 30px;
-}
-
-/* Responsiveness
+/* Responsiveness */ 
 
 @media only screen and (min-width: 1200px) {
   /* Large Devices, Wide Screens */
@@ -315,4 +329,44 @@ a:visited:hover {
     width: 80px;
     height: 25px;
   }
+}}
+
+cite {
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+#suitU, #suitD {
+  text-transform: uppercase;
+}
+
+#suitU, #suitD, #typeU, #typeD {
+  font-size: 1.2rem;
+  font-weight: 1000;
+}
+
+#valueU, #valueD {
+  font-size: 2rem;
+  font-weight: 1000;
+}
+
+#you, #dealer {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+#footertext {
+  margin: 10px;
+}
+
+cite {
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+}
+
+#orglink {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
 }

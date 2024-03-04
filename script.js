@@ -78,6 +78,7 @@ const deck = [
 let userCardCount = 0;
 let userSum = 0;
 let dealerSum = 0;
+let winner;
 
 function drawCard() { 
 
@@ -108,7 +109,7 @@ function drawUser() {
 		
 		userCardCount++; // Increment the user card count
 
-        
+        textleft.style.color = "aliceblue";
 
     suitU.innerText = card.suit;
     typeU.innerText = card.type;
@@ -142,10 +143,18 @@ function drawDealer() {if (dealerSum < 17 || dealerSum < userSum) {
     valueD.innerText = dealerSum; // Displaying the sum instead of the last drawn card value
 
     {if (dealerSum === 21) {
-        checkWinnerAndFinishGame();
+        winner = "Dealer";
+        money = money;
+        textleft.innerText = "Dealer Wins";
+        dealerWinSound.play();
+        textleft.style.color = "red";
     }
     else if (dealerSum > 21) {
-        checkWinnerAndFinishGame();
+        winner= "Player";
+        money += 2 * bet;
+        textleft.innerText = 'You Win';
+        playerWinSound.play();
+        textleft.style.color = "rgb(3, 255, 3)";
     }}
 }
 else {
@@ -206,7 +215,6 @@ function bet1000() {
 function checkWinnerAndFinishGame() {
     gameLive = false;
     update(locations[0]);
-    let winner;
 	// Check if either player or dealer has busted or has reached blackjack
 	
     {if (dealerSum > 21) {
@@ -232,18 +240,21 @@ function checkWinnerAndFinishGame() {
 	// Updating balance and logs according to the winner
 	{if (winner === 'Player') {
 		money += 2 * bet;
-        textleft.innerText = 'Player Wins';
+        textleft.innerText = 'You Win';
         playerWinSound.play();
+        textleft.style.color = "rgb(3, 255, 3)";
 	}
     else if (winner === 'Dealer') {
 		money = money;
         textleft.innerText = "Dealer Wins";
         dealerWinSound.play();
+        textleft.style.color = "red";
 	}
     else if (winner === 'Drawn') {
         money += bet;
         textleft.innerText = 'Game drawn';
         gameDrawnSound.play();
+        textleft.style.color = "#ffbd08";
     }}
 
 	balance.innerText = money;
@@ -300,13 +311,13 @@ const locations = [
         "button text": ["$100", "$500", "$1000"],
         "button functions": [bet100, bet500, bet1000],
         textleft: "Choose your bet",
-        textright: "Bet amount",
+        textright: "Choose New Bet",
     },
     {
         name: "Game Menu",
         "button text": ["Draw", "Hold", "Double"],
         "button functions": [drawUser, hold, double],
-        textleft: "Playing...",
+        textleft: "Dealing...",
         textright: "Choose",
     }
 ];
@@ -325,3 +336,7 @@ function update(location) {
 // initial settings
 update(locations[0]); // initial loc at bet menu
 showDealerCard(); // initial hide game (since gamelive is set to false)
+
+//setting welcome screen when first opened/reload
+textleft.innerText = 'Welcome to BlackJack';
+textright.innerText = 'Choose Bet'; 
