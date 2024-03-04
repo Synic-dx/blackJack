@@ -1,4 +1,4 @@
-# <img src="logo.svg" width= "150px"> 
+<img src="logo.svg" width= "150px"> 
 
 # **blackJack**
 
