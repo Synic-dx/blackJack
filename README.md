@@ -1,7 +1,5 @@
 # **blackJack**
-
-![Alt text](./logo.svg)
-<img src="logo.svg">
+<img src="logo.svg" width= "100px">
 
 ## About
 
