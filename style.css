@@ -286,48 +286,48 @@ a:visited:hover {
 @media only screen and (max-width: 800px) {
   /* Small Devices, Tablets */
   h1 {
-    font-size: 1.5rem;
-  }
-
-  svg {
-    width: 3rem;
-  }
-
-  button {
-    width: 150px;
-    height: 40px;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  /* Extra Small Devices, Phones */
-  h1 {
     font-size: 1rem;
   }
 
   svg {
     width: 2rem;
   }
-  
+
   button {
     width: 100px;
-    height: 30px;
+    height: 26px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  /* Extra Small Devices, Phones */
+  h1 {
+    font-size: 0.6rem;
+  }
+
+  svg {
+    width: 1.2rem;
+  }
+  
+  button {
+    width: 60px;
+    height: 24px;
   }
 }
 
 @media only screen and (max-width: 320px) {
   /* Extra Extra Small Devices, Phones */
   h1 {
-    font-size: 0.8rem;
+    font-size: 0.48rem;
   }
 
   svg {
-    width: 1.5rem;
+    width: 0.9rem;
   }
   
   button {
-    width: 80px;
-    height: 25px;
+    width: 48px;
+    height: 13px;
   }
 }}
 
