@@ -11,5 +11,5 @@ I have not added splice method to remove drawn cards from the deck to keep it si
 
 ### Game has one error to be fixed:
 
-The hold function is resulting in several check winner functions resulting in game being drawn as well as player/dealer winning (as evident by multiple sound effects), messing up the balance updates as well as showing that the game is drawn when it's not.
+Game accepts one userDraw even after dealer busts.
 
