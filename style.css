@@ -126,6 +126,11 @@ main {
   margin: 3% 5% 3% auto;
 }
 
+#buttons {
+  display: flex;
+  flex-direction: column;
+}
+
 #right,
 #left {
   text-align: center;
@@ -251,85 +256,41 @@ a:visited:hover {
 
 /* Responsiveness */ 
 
-@media only screen and (min-width: 1200px) {
-  /* Large Devices, Wide Screens */
+@media only screen and (max-width: 600px) {
+  /* Phones */
+  #play, svg {
+    display: none;
+  }
 
-  h1 {
+  #name, #plate {
     font-size: 2.5rem;
   }
-
-  svg {
-    width: 5rem;
-  }
   
+  #bank, #rules {
+    margin: auto 5vw;
+  }
+
+  main {
+    flex-direction: column;
+  }
+
+  #yourcard, #textleft {
+    margin-bottom: 5px;
+  }
+
+  #buttons {
+    flex-direction: row;
+  }
+
   button {
-    width: 250px;
-    height: 60px;
-  }
-
-@media only screen and (max-width: 1200px) {
-  /* Medium Devices, Desktops */
-  h1 {
-    font-size: 2rem;
-  }
-
-  svg {
-    width: 4rem;
-  }
-
-  button {
-    width: 200px;
+    width: 25vw;
     height: 50px;
   }
-}
 
-@media only screen and (max-width: 800px) {
-  /* Small Devices, Tablets */
-  h1 {
-    font-size: 1rem;
-  }
-
-  svg {
-    width: 2rem;
-  }
-
-  button {
-    width: 100px;
-    height: 26px;
+  #javascript {
+    display: none;
   }
 }
-
-@media only screen and (max-width: 480px) {
-  /* Extra Small Devices, Phones */
-  h1 {
-    font-size: 0.6rem;
-  }
-
-  svg {
-    width: 1.2rem;
-  }
-  
-  button {
-    width: 60px;
-    height: 24px;
-  }
-}
-
-@media only screen and (max-width: 320px) {
-  /* Extra Extra Small Devices, Phones */
-  h1 {
-    font-size: 0.48rem;
-  }
-
-  svg {
-    width: 0.9rem;
-  }
-  
-  button {
-    width: 48px;
-    height: 13px;
-  }
-}}
 
 cite {
     text-decoration: none;
