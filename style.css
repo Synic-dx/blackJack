@@ -279,7 +279,7 @@ a:visited:hover {
   }
 
   #buttons {
-    flex-direction: row;
+    flex-direction: row-reverse;
   }
 
   button {
