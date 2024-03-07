@@ -279,7 +279,7 @@ a:visited:hover {
   }
 
   #buttons {
-    flex-direction: row-reverse;
+    flex-direction: row;
   }
 
   button {
@@ -289,6 +289,12 @@ a:visited:hover {
 
   #javascript {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #bank, #rules {
+    margin: auto 4vw auto 4vw;
   }
 }
 
