@@ -12,4 +12,10 @@ I have not added splice method to remove drawn cards from the deck to keep it si
 
 Game accepts one userDraw even after dealer busts.
 
+##Screenshots
+
 ![image](https://github.com/Synic-dx/blackJack/assets/75749422/fa82468a-7e06-44b3-8841-fdd1312f660e)
+![image](https://github.com/Synic-dx/blackJack/assets/75749422/7b33c429-a3f9-406e-8057-ecd45d0d93bc)
+![image](https://github.com/Synic-dx/blackJack/assets/75749422/7bea6d73-8aec-4e6b-a347-aa2087a98f4d)
+
+
