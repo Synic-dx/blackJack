@@ -3,6 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root {
+  box-sizing: border-box;
+}
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: aliceblue;
@@ -14,6 +17,7 @@ body {
   padding: 0;
   width: 100vw;
   height: 100vh;
+  box-sizing: border-box;
 }
 
 header {
@@ -31,6 +35,7 @@ header {
   position: fixed;
   height: 14vh;
   padding: 0 0 0 1%;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -114,6 +119,7 @@ main {
   letter-spacing: 2px;
   position: absolute;
   top: 15%;
+  box-sizing: border-box;
 }
 
 #left {
@@ -257,7 +263,7 @@ a:visited:hover {
 /* Responsiveness */ 
 
 @media only screen and (max-width: 1000px) {
-  /* Phones */
+  /*Tablets*/
   #play, svg {
     display: none;
   }
@@ -267,7 +273,7 @@ a:visited:hover {
   }
   
   #bank, #rules {
-    margin: auto 5vw;
+    margin: auto 4vw;
   }
 
   main {
@@ -293,8 +299,14 @@ a:visited:hover {
 }
 
 @media only screen and (max-width: 600px) {
+  /* Phones */
+
   #bank, #rules {
-    margin: auto 4vw auto 4vw;
+    margin: auto 2vw auto 2vw;
+  }
+
+  #name, #plate {
+    font-size: 1.5rem;
   }
 }
 
