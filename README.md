@@ -1,6 +1,7 @@
 # **blackJack**
 
-<img src="logo.svg" width= "150px">
+![image](https://github.com/Synic-dx/blackJack/assets/75749422/fa82468a-7e06-44b3-8841-fdd1312f660e)
+
 
 ## About
 
