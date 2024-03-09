@@ -176,7 +176,7 @@ function bet100() {
     } else if (gameLive===true) {
         alert("Game ongoing, you cannot bet now");
     } else {
-        textright.innerText = "You do not have 100 cash";
+        alert("You do not have 100 cash");
     }
 }
 
@@ -192,7 +192,7 @@ function bet500() {
     } else if (gameLive===true) {
         alert("Game ongoing, you cannot bet now");
     } else {
-        textright.innerText = "You do not have 500 cash";
+        alert("You do not have 500 cash");
     }
 }
 
@@ -208,7 +208,7 @@ function bet1000() {
     } else if (gameLive===true) {
         alert("Game ongoing, you cannot bet now");
     } else {
-        textright.innerText = "You do not have 1000 cash";
+        alert("You do not have 1000 cash");
     }
 }
 // Function to check the winner
